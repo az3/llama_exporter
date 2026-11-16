@@ -84,7 +84,8 @@ def fetch_all_metrics(base_url, api_key, models, only_loaded, timeout):
         models = []
     chunks = ["""# HELP llama_exporter_online exporter application online flag.
 # TYPE llama_exporter_online gauge
-llama_exporter_online 1"""]
+llama_exporter_online 1
+"""]
     for model in models:
         try:
             raw = fetch_model_metrics(base_url, api_key, model, timeout=timeout)
