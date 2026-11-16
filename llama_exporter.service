@@ -1,0 +1,15 @@
+[Unit]
+Description=Llama Server Exporter
+After=network.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/bin/llama_exporter.py --host 127.0.0.1 --port 9186 --url http://127.0.0.1:9931 --api-key "KEY"
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
